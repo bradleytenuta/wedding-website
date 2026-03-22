@@ -70,6 +70,28 @@ nav ul {
     margin: 0 auto;
     overflow: hidden;
 }
+.home-content > section {
+    max-width: none;
+    width: 100%;
+}
+.home-label-wrapper {
+    position: relative;
+    width: 700px;
+    max-width: 90%;
+    margin: 0 auto;
+}
+.home-label-bg {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+.home-label-content {
+    position: absolute;
+    top: 15%;
+    left: 15%;
+    right: 15%;
+    bottom: 15%;
+}
 .home-bg-image {
     width: 100%;
     height: 100%;
@@ -85,6 +107,8 @@ nav ul {
     min-height: 800px;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 @media (max-width: 768px) {
     .home-content {

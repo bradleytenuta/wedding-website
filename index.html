@@ -51,46 +51,55 @@
         <img src="assets/botanical-border-soft-sage-green-featuring-watercolor-florals-greenery-perfect-invitations-decor-delicate-design-404347248.jpg" alt="" class="home-bg-image">
         <div class="home-content">
         <section style="color: #8f9779; text-align: center;">
-            <div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">
-                <h2>Bradley & Louise</h2>
-                <p style="margin: 0px;">Joyfully invite you to their wedding celebration</p>
-                <p id="countdown" style="margin: 0px; display: flex; gap: 10px; justify-content: center;"></p>
-                <script>
-                    (function() {
-                        const targetDate = new Date('2026-08-01T13:00:00');
-                        function updateCountdown() {
-                            const now = new Date();
-                            let diff = targetDate - now;
-                            if (diff < 0) diff = 0;
-                            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-                            const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-                            const minutes = Math.floor((diff / (1000 * 60)) % 60);
-                            const seconds = Math.floor((diff / 1000) % 60);
-                            document.getElementById('countdown').innerHTML =
-                                `<span style="display: flex; flex-direction: column; align-items: center;">
-                                    <span>${days}</span>
-                                    <span>days</span>
-                                </span>
-                                <span style="align-self: center;">|</span>
-                                <span style="display: flex; flex-direction: column; align-items: center;">
-                                    <span>${hours}</span>
-                                    <span>hours</span>
-                                </span>
-                                <span style="align-self: center;">|</span>
-                                <span style="display: flex; flex-direction: column; align-items: center;">
-                                    <span>${minutes}</span>
-                                    <span>minutes</span>
-                                </span>
-                                <span style="align-self: center;">|</span>
-                                <span style="display: flex; flex-direction: column; align-items: center;">
-                                    <span>${seconds}</span>
-                                    <span>seconds</span>
-                                </span>`;
-                        }
-                        updateCountdown();
-                        setInterval(updateCountdown, 1000);
-                    })();
-                </script>
+            <div class="home-label-wrapper">
+                <svg class="home-label-bg" viewBox="35 295 335 180" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+                    <path d="M335,349.2c-0.2,0-0.3,0-0.5,0c-1-12.4-10.2-22.1-21.5-22.1h-4.6c-0.8-12.6-10.1-22.6-21.5-22.6H117.4
+                        c-11.4,0-20.7,10-21.5,22.6h-4.6c-11.3,0-20.5,9.7-21.5,22.1c-0.2,0-0.3,0-0.5,0c-15.8,0-28.6,17.1-28.6,38.2
+                        c0,21.1,12.8,38.2,28.6,38.2c0.2,0,0.3,0,0.5,0c1,12.4,10.2,22.1,21.5,22.1h4.6c0.8,12.6,10.1,22.6,21.5,22.6h169.4
+                        c11.4,0,20.7-10,21.5-22.6h4.6c11.3,0,20.5-9.7,21.5-22.1c0.2,0,0.3,0,0.5,0c15.8,0,28.6-17.1,28.6-38.2
+                        C363.6,366.3,350.8,349.2,335,349.2z" fill="gold"/>
+                </svg>
+                <div class="home-label-content" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+                    <h2>Bradley & Louise</h2>
+                    <p style="margin: 0px;">Joyfully invite you to their wedding celebration</p>
+                    <p id="countdown" style="margin: 0px; display: flex; gap: 10px; justify-content: center;"></p>
+                    <script>
+                        (function() {
+                            const targetDate = new Date('2026-08-01T13:00:00');
+                            function updateCountdown() {
+                                const now = new Date();
+                                let diff = targetDate - now;
+                                if (diff < 0) diff = 0;
+                                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                                const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+                                const minutes = Math.floor((diff / (1000 * 60)) % 60);
+                                const seconds = Math.floor((diff / 1000) % 60);
+                                document.getElementById('countdown').innerHTML =
+                                    `<span style="display: flex; flex-direction: column; align-items: center;">
+                                        <span>${days}</span>
+                                        <span>days</span>
+                                    </span>
+                                    <span style="align-self: center;">|</span>
+                                    <span style="display: flex; flex-direction: column; align-items: center;">
+                                        <span>${hours}</span>
+                                        <span>hours</span>
+                                    </span>
+                                    <span style="align-self: center;">|</span>
+                                    <span style="display: flex; flex-direction: column; align-items: center;">
+                                        <span>${minutes}</span>
+                                        <span>minutes</span>
+                                    </span>
+                                    <span style="align-self: center;">|</span>
+                                    <span style="display: flex; flex-direction: column; align-items: center;">
+                                        <span>${seconds}</span>
+                                        <span>seconds</span>
+                                    </span>`;
+                            }
+                            updateCountdown();
+                            setInterval(updateCountdown, 1000);
+                        })();
+                    </script>
+                </div>
             </div>
         </section>
         </div>
