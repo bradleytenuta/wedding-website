@@ -1,0 +1,243 @@
+/* Old background colour: #b48a78 & #fffaf7 */
+
+/* Other */
+body {
+    font-family: 'eb garamond', serif !important;
+    margin: 0;
+    padding: 0;
+    background-color: #ffffff !important;
+    color: #333;
+}
+h2 {
+    margin: 0px !important;
+    margin-bottom: 12px !important;
+    color: #b48a78 !important;
+    text-align: center !important;
+}
+p {
+    color: #b48a78 !important;
+    text-align: center !important;
+}
+section {
+    padding: 40px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+.vertical-divide {
+    background-color: #b48a78;
+    margin: 5px auto;
+}
+@media (max-width: 768px) {
+    .details-vertical-divide {
+        width: 0em !important;
+        margin: 0px;
+    }
+}
+/* Other */
+
+/* Navbar */
+.custom-nav-link {
+    color: #b48a78 !important;
+    text-decoration: none !important;
+}
+.custom-toggler .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(180,138,120, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+.custom-toggler.navbar-toggler {
+    border: 0 !important;
+    background-color: transparent !important;
+    border-color: rgb(180,138,120);
+}
+header {
+    padding-bottom: 20px;
+    text-align: center;
+}
+nav {
+    background-color: white !important;
+}
+nav ul {
+    padding: 0;
+    margin: 10px 0 0 0;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+/* Navbar */
+
+/* Home */
+.home-container {
+    background-image: url('woodlands-park.jpg');
+    background-size: cover;
+    background-position: center;
+    min-height: 800px;
+}
+@media (max-width: 768px) {
+    .home-container {
+        min-height: 500px;
+    }
+}
+/* Home */
+
+/* Story */
+.profile-outer-container {
+    margin: 2em 0em;
+}
+.profile-container {
+    width: 150px;
+    height: 150px;
+    background-color: #f0e1dd;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 10px;
+    position: relative;
+}
+.profile-container > img {
+    width: 90%;
+    height: 90%;
+    border-radius: 50%;
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+}
+/* Story */
+
+/* Details */
+.wave-container > svg {
+  width: 100%;
+  height: 100%;
+}
+.wave-container > svg path {
+  fill: #ffffff;
+}
+.wave-container > svg rect {
+  fill: #8f9779;
+}
+.wave-container {
+  --divider-height: 4rem;
+  position: relative;
+  top: calc( var(--divider-height)/2 * -1 );
+  height: var(--divider-height);
+  width: 100%;
+  float: left; 
+  z-index: 1;
+}
+@media (max-width: 768px) {
+    .details-heading {
+        margin-bottom: 50px !important;
+    }
+}
+/* Details */
+
+/* Agenda */
+.agenda-wave-container > svg {
+  width: 100%;
+  height: 100%;
+}
+.agenda-wave-container > svg path {
+  fill: #8f9779;
+}
+.agenda-wave-container > svg rect {
+  fill: #ffffff;
+}
+.agenda-wave-container {
+  --divider-height: 4rem;
+  position: relative;
+  top: calc( var(--divider-height)/2 * -1 );
+  height: var(--divider-height);
+  width: 100%;
+  float: left; 
+  z-index: 1;
+}
+@media (max-width: 768px) {
+    .details-heading {
+        margin-bottom: 50px !important;
+    }
+}
+.agenda-container {
+    background-image: url('woodlands-park.jpg');
+    background-size: cover;
+    background-position: center;
+    color: #b48a78 !important;
+    min-height: 650px;
+}
+@media (max-width: 768px) {
+    .agenda-container {
+        min-height: 400px;
+    }
+}
+.agenda-content {
+    background-color: rgba(255, 250, 247, 0.7);
+    padding: 20px 40px;
+    border-radius: 10px;
+    font-size: 1.2em;
+    margin: 100px 0px;
+}
+@media (max-width: 768px) {
+    .agenda-content {
+        padding: 20px 40px;
+        margin: 20px 0px;
+    }
+}
+/* Agenda */
+
+
+/* .gallery-grid {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.gallery-grid img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(180, 138, 120, 0.2);
+}
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+input, select, textarea {
+    padding: 10px;
+    border: 1px solid #b48a78;
+    border-radius: 5px;
+    font-size: 1em;
+}
+button {
+    background: #b48a78;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+button:hover {
+    background: #a06c54;
+} */
+footer {
+    background: #f7e9e3;
+    text-align: center;
+    padding: 20px 0;
+    color: #b48a78;
+    font-size: 1em;
+    margin-top: 40px;
+}
+/* @media (max-width: 600px) {
+    .gallery-grid {
+        flex-direction: column;
+        align-items: center;
+    }
+    nav ul {
+        flex-direction: column;
+        gap: 10px;
+    }
+    section {
+        padding: 20px 10px;
+    }
+} */
