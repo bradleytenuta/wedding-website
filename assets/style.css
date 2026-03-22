@@ -165,21 +165,52 @@ nav ul {
         min-height: 400px;
     }
 }
-.agenda-content {
-    background-color: rgba(255, 250, 247, 0.7);
-    padding: 20px 40px;
-    border-radius: 10px;
-    font-size: 1.2em;
-    margin: 100px 0px;
-}
-@media (max-width: 768px) {
-    .agenda-content {
-        padding: 20px 40px;
-        margin: 20px 0px;
-    }
-}
 /* Agenda */
 
+/* RSVP */
+.rsvp-form-container {
+    background-color: #f7e9e3;
+    width: 100%;
+    padding: 40px 20px;
+    overflow: hidden;
+}
+.rsvp-iframe {
+    width: 100%;
+    max-width: 800px;
+    min-height: 600px;
+    border: none;
+    background-color: transparent;
+    display: block;
+    margin: 0 auto;
+}
+/* RSVP */
+
+/* FAQ Accordion */
+.accordion-item {
+    border: 1px solid #b48a78 !important;
+    background-color: transparent;
+}
+.accordion-button {
+    background-color: transparent !important;
+    color: #b48a78 !important;
+    font-family: 'eb garamond', serif !important;
+    font-size: 1em;
+    box-shadow: none !important;
+}
+.accordion-button:not(.collapsed) {
+    background-color: #f7e9e3 !important;
+    color: #b48a78 !important;
+}
+.accordion-button::after {
+    filter: sepia(1) saturate(2) hue-rotate(-10deg) brightness(0.7);
+}
+.accordion-body,
+.accordion-body p {
+    color: #b48a78 !important;
+    text-align: left !important;
+    font-family: 'eb garamond', serif !important;
+}
+/* FAQ Accordion */
 
 /* .gallery-grid {
     display: flex;
@@ -223,10 +254,35 @@ button:hover {
 footer {
     background: #f7e9e3;
     text-align: center;
-    padding: 20px 0;
+    padding: 40px 20px;
     color: #b48a78;
     font-size: 1em;
     margin-top: 40px;
+}
+.footer-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+.footer-names {
+    font-size: 1.5em;
+    margin-bottom: 0 !important;
+    letter-spacing: 0.05em;
+}
+.footer-date {
+    font-size: 1em;
+    margin-top: 5px !important;
+    margin-bottom: 0 !important;
+}
+.footer-divider {
+    width: 60px;
+    height: 1px;
+    background-color: #b48a78;
+    margin: 15px auto;
+}
+.footer-tagline {
+    font-size: 0.9em;
+    font-style: italic;
+    margin-bottom: 0 !important;
 }
 /* @media (max-width: 600px) {
     .gallery-grid {
