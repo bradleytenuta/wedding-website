@@ -5,17 +5,17 @@ body {
     font-family: 'eb garamond', serif !important;
     margin: 0;
     padding: 0;
-    background-color: #ffffff !important;
+    background-color: #fff5e7 !important;
     color: #333;
 }
 h2 {
     margin: 0px !important;
     margin-bottom: 12px !important;
-    color: #b48a78 !important;
+    color: #8f9779 !important;
     text-align: center !important;
 }
 p {
-    color: #b48a78 !important;
+    color: #8f9779 !important;
     text-align: center !important;
 }
 section {
@@ -24,7 +24,7 @@ section {
     margin: 0 auto;
 }
 .vertical-divide {
-    background-color: #b48a78;
+    background-color: #8f9779;
     margin: 5px auto;
 }
 @media (max-width: 768px) {
@@ -37,23 +37,22 @@ section {
 
 /* Navbar */
 .custom-nav-link {
-    color: #b48a78 !important;
+    color: #8f9779 !important;
     text-decoration: none !important;
 }
 .custom-toggler .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(180,138,120, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(143,151,121, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
 .custom-toggler.navbar-toggler {
     border: 0 !important;
     background-color: transparent !important;
-    border-color: rgb(180,138,120);
+    border-color: rgb(143,151,121);
 }
 header {
-    padding-bottom: 20px;
     text-align: center;
 }
 nav {
-    background-color: white !important;
+    background-color: #fff5e7 !important;
 }
 nav ul {
     padding: 0;
@@ -66,13 +65,29 @@ nav ul {
 
 /* Home */
 .home-container {
-    background-image: url('woodlands-park.jpg');
-    background-size: cover;
-    background-position: center;
+    position: relative;
+    max-width: 1320px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.home-bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 0;
+}
+.home-content {
+    position: relative;
+    z-index: 1;
     min-height: 800px;
+    display: flex;
+    flex-direction: column;
 }
 @media (max-width: 768px) {
-    .home-container {
+    .home-content {
         min-height: 500px;
     }
 }
@@ -107,7 +122,7 @@ nav ul {
   height: 100%;
 }
 .wave-container > svg path {
-  fill: #ffffff;
+  fill: #fff5e7;
 }
 .wave-container > svg rect {
   fill: #8f9779;
@@ -137,41 +152,45 @@ nav ul {
   fill: #8f9779;
 }
 .agenda-wave-container > svg rect {
-  fill: #ffffff;
+  fill: transparent;
+}
+.agenda-wrapper {
+    position: relative;
+    width: 100%;
 }
 .agenda-wave-container {
   --divider-height: 4rem;
-  position: relative;
-  top: calc( var(--divider-height)/2 * -1 );
   height: var(--divider-height);
   width: 100%;
-  float: left; 
-  z-index: 1;
-}
-@media (max-width: 768px) {
-    .details-heading {
-        margin-bottom: 50px !important;
-    }
+  z-index: 2;
 }
 .agenda-container {
-    background-image: url('woodlands-park.jpg');
-    background-size: cover;
-    background-position: center;
-    color: #b48a78 !important;
-    min-height: 650px;
+    width: 100%;
+    max-width: 1320px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+    margin-top: 40px;
+    overflow: hidden;
 }
-@media (max-width: 768px) {
-    .agenda-container {
-        min-height: 400px;
-    }
+.agenda-image {
+    width: 100%;
+    display: block;
+    object-fit: cover;
 }
 /* Agenda */
 
+/* Gifts */
+@media (max-width: 768px) {
+    .gifts-divider-col {
+        display: none;
+    }
+}
+/* Gifts */
+
 /* RSVP */
 .rsvp-form-container {
-    background-color: #f7e9e3;
     width: 100%;
-    padding: 40px 20px;
+    padding: 0px 20px;
     overflow: hidden;
 }
 .rsvp-iframe {
@@ -187,26 +206,26 @@ nav ul {
 
 /* FAQ Accordion */
 .accordion-item {
-    border: 1px solid #b48a78 !important;
+    border: 1px solid #8f9779 !important;
     background-color: transparent;
 }
 .accordion-button {
     background-color: transparent !important;
-    color: #b48a78 !important;
+    color: #8f9779 !important;
     font-family: 'eb garamond', serif !important;
     font-size: 1em;
     box-shadow: none !important;
 }
 .accordion-button:not(.collapsed) {
-    background-color: #f7e9e3 !important;
-    color: #b48a78 !important;
+    background-color: #8f9779 !important;
+    color: white !important;
 }
 .accordion-button::after {
     filter: sepia(1) saturate(2) hue-rotate(-10deg) brightness(0.7);
 }
 .accordion-body,
 .accordion-body p {
-    color: #b48a78 !important;
+    color: #8f9779 !important;
     text-align: left !important;
     font-family: 'eb garamond', serif !important;
 }
@@ -252,10 +271,9 @@ button:hover {
     background: #a06c54;
 } */
 footer {
-    background: #f7e9e3;
+    background: #8f9779;
     text-align: center;
     padding: 40px 20px;
-    color: #b48a78;
     font-size: 1em;
     margin-top: 40px;
 }
@@ -276,7 +294,7 @@ footer {
 .footer-divider {
     width: 60px;
     height: 1px;
-    background-color: #b48a78;
+    background-color: #8f9779;
     margin: 15px auto;
 }
 .footer-tagline {
