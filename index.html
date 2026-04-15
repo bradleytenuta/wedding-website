@@ -39,7 +39,11 @@
             hint.classList.add('hide');
             setTimeout(function() { seal.classList.add('break'); }, 100);
             setTimeout(function() { flap.classList.add('open'); }, 500);
-            setTimeout(function() { letter.classList.add('slide-out'); }, 1300);
+            setTimeout(function() {
+                flap.style.zIndex = '0';
+                letter.classList.add('slide-out');
+            }, 1300);
+            setTimeout(function() { letter.style.zIndex = '10'; }, 2000);
             setTimeout(function() { overlay.classList.add('fade-out'); }, 2800);
             setTimeout(function() {
                 overlay.remove();
