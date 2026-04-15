@@ -10,6 +10,45 @@
 </head>
 
 <body>
+    <!-- Envelope Intro Overlay -->
+    <div id="envelope-overlay">
+        <p class="envelope-hint">Click to open me</p>
+        <div class="envelope-intro">
+            <div class="envelope-lining"></div>
+            <div class="envelope-letter"></div>
+            <div class="envelope-front"></div>
+            <div class="envelope-flap"></div>
+            <div class="wax-seal">
+                <div class="wax-seal-circle">
+                    <span class="wax-seal-text">B & L</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+    (function() {
+        document.body.classList.add('no-scroll');
+        var overlay = document.getElementById('envelope-overlay');
+        overlay.addEventListener('click', function() {
+            if (overlay.classList.contains('opening')) return;
+            overlay.classList.add('opening');
+            var hint = document.querySelector('.envelope-hint');
+            var seal = document.querySelector('.wax-seal');
+            var flap = document.querySelector('.envelope-flap');
+            var letter = document.querySelector('.envelope-letter');
+            hint.classList.add('hide');
+            setTimeout(function() { seal.classList.add('break'); }, 100);
+            setTimeout(function() { flap.classList.add('open'); }, 500);
+            setTimeout(function() { letter.classList.add('slide-out'); }, 1300);
+            setTimeout(function() { overlay.classList.add('fade-out'); }, 2800);
+            setTimeout(function() {
+                overlay.remove();
+                document.body.classList.remove('no-scroll');
+            }, 3800);
+        });
+    })();
+    </script>
+
     <header>
         <nav class="navbar navbar-expand-lg">
             <div class="container">

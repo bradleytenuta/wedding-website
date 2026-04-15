@@ -2,6 +2,223 @@
 /* Other white image we used which looks nice: fffbf5 */
 /* new white background to use from image: fef5e6 */
 
+/* ===== Envelope Intro Overlay ===== */
+body.no-scroll {
+    overflow: hidden;
+}
+
+#envelope-overlay {
+    position: fixed;
+    inset: 0;
+    background: #fffbf5;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.envelope-hint {
+    font-size: 1.1em !important;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 30px !important;
+    animation: hintFloat 2.5s ease-in-out infinite;
+    transition: opacity 0.3s ease;
+}
+
+@keyframes hintFloat {
+    0%, 100% { transform: translateY(0); opacity: 0.6; }
+    50% { transform: translateY(-8px); opacity: 1; }
+}
+
+.envelope-hint.hide {
+    opacity: 0 !important;
+}
+
+.envelope-intro {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    filter: drop-shadow(0 8px 25px rgba(0, 0, 0, 0.12));
+}
+
+.envelope-lining {
+    position: absolute;
+    inset: 0;
+    background: #e8d5b8;
+    border-radius: 0 0 6px 6px;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.envelope-lining::before,
+.envelope-lining::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+}
+
+.envelope-lining::before {
+    left: 0;
+    background: linear-gradient(to bottom right, #c9a47a 50%, transparent 50.5%);
+}
+
+.envelope-lining::after {
+    right: 0;
+    background: linear-gradient(to bottom left, #c9a47a 50%, transparent 50.5%);
+}
+
+.envelope-letter {
+    position: absolute;
+    width: 240px;
+    height: 160px;
+    top: 20px;
+    left: 30px;
+    background: #fff;
+    border-radius: 2px;
+    z-index: 1;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+}
+
+.envelope-letter.slide-out {
+    z-index: 10;
+    animation: letterSlideAndExpand 2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes letterSlideAndExpand {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 0;
+    }
+    5% {
+        opacity: 1;
+    }
+    35% {
+        transform: translateY(-200px) scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-200px) scale(15);
+        opacity: 1;
+    }
+}
+
+.envelope-front {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(175deg, #d9a870 0%, #d4a574 40%, #c99a68 100%);
+    border-radius: 0 0 6px 6px;
+    z-index: 2;
+    clip-path: polygon(0 35%, 50% 0%, 100% 35%, 100% 100%, 0% 100%);
+}
+
+.envelope-flap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 130px;
+    background: linear-gradient(180deg, #c99a68 0%, #d4a574 100%);
+    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    transform-origin: top center;
+    transform: perspective(800px) rotateX(0deg);
+    z-index: 4;
+    transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.envelope-flap.open {
+    transform: perspective(800px) rotateX(180deg);
+}
+
+.wax-seal {
+    position: absolute;
+    width: 54px;
+    height: 54px;
+    left: 50%;
+    top: 58%;
+    transform: translate(-50%, -50%);
+    z-index: 5;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.wax-seal.break {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(1.4) rotate(15deg);
+}
+
+.wax-seal-circle {
+    width: 100%;
+    height: 100%;
+    border-radius: 50% 48% 52% 47% / 48% 52% 47% 50%;
+    background: radial-gradient(circle at 38% 32%, #d44050 0%, #b82838 28%, #8b1a2b 65%, #6d1420 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow:
+        inset 0 2px 5px rgba(255, 180, 180, 0.15),
+        inset 0 -3px 6px rgba(0, 0, 0, 0.3),
+        0 2px 8px rgba(0, 0, 0, 0.25);
+    position: relative;
+}
+
+.wax-seal-circle::after {
+    content: '';
+    position: absolute;
+    width: 78%;
+    height: 78%;
+    border: 1.5px solid rgba(255, 255, 255, 0.12);
+    border-radius: inherit;
+}
+
+.wax-seal-text {
+    color: rgba(255, 210, 210, 0.65) !important;
+    font-size: 12px !important;
+    letter-spacing: 1px;
+    font-weight: 600;
+    z-index: 1;
+    text-align: center !important;
+}
+
+#envelope-overlay.fade-out {
+    animation: overlayFade 1s ease forwards;
+    pointer-events: none;
+}
+
+@keyframes overlayFade {
+    to { opacity: 0; }
+}
+
+@media (max-width: 480px) {
+    .envelope-intro {
+        width: 240px;
+        height: 160px;
+    }
+    .envelope-letter {
+        width: 192px;
+        height: 128px;
+        top: 16px;
+        left: 24px;
+    }
+    .envelope-flap {
+        height: 104px;
+    }
+    .wax-seal {
+        width: 44px;
+        height: 44px;
+    }
+    .wax-seal-text {
+        font-size: 10px !important;
+    }
+    .envelope-hint {
+        font-size: 0.95em !important;
+    }
+}
+/* ===== Envelope Intro Overlay End ===== */
+
 
 /* Other */
 body {
