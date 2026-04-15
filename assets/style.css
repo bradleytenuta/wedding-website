@@ -49,7 +49,7 @@ body.no-scroll {
     position: absolute;
     inset: 0;
     background: #b8c4a8;
-    border-radius: 0 0 6px 6px;
+    border-radius: 0px 0px 8px 8px;
     overflow: hidden;
     z-index: 0;
 }
@@ -80,13 +80,13 @@ body.no-scroll {
     top: 10%;
     left: 10%;
     background: #fff;
-    border-radius: 2px;
+    border-radius: 4px;
     z-index: 1;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
 }
 
 .envelope-letter.slide-out {
-    animation: letterSlideAndExpand 2s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+    animation: letterSlideAndExpand 3s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 @keyframes letterSlideAndExpand {
@@ -107,7 +107,7 @@ body.no-scroll {
     background: linear-gradient(175deg, #9aa584 0%, #8f9779 40%, #828a6c 100%);
     border-radius: 0 0 6px 6px;
     z-index: 2;
-    clip-path: polygon(0 35%, 50% 0%, 100% 35%, 100% 100%, 0% 100%);
+    clip-path: polygon(0 0%, 50% 0%, 50% 0%, 50% 0%, 100% 0%, 100% 100%, 0% 100%);
 }
 
 .envelope-flap {
@@ -117,11 +117,11 @@ body.no-scroll {
     width: 100%;
     height: 65%;
     background: linear-gradient(180deg, #828a6c 0%, #8f9779 100%);
-    clip-path: polygon(0 0, 100% 0, 50% 100%);
+    clip-path: polygon(0 0, 100% 0, 52% 98.5%, 50% 99.5%, 48% 98.5%);
     transform-origin: top center;
     transform: perspective(800px) rotateX(0deg);
     z-index: 4;
-    transition: transform 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: transform 1.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .envelope-flap.open {
