@@ -544,19 +544,71 @@ nav ul {
 }
 
 .rsvp-form-container {
-    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
     padding: 0 20px;
-    overflow: hidden;
 }
 
-.rsvp-iframe {
-    width: 100%;
-    max-width: 800px;
-    min-height: 600px;
+#rsvp-form {
+    border: 1px solid #8f9779;
+    background-color: white;
+    border-radius: 5px;
+    padding: 1.5em 2em;
+    text-align: center;
+}
+
+#rsvp-form fieldset {
     border: none;
-    background-color: transparent;
-    display: block;
-    margin: 0 auto;
+    padding: 0;
+    margin: 0 0 1.5em;
+}
+
+#rsvp-form legend {
+    font-size: 1.1em;
+    color: #8f9779 !important;
+    margin-bottom: 0.75em;
+}
+
+#rsvp-form .form-check {
+    display: inline-block;
+    margin-right: 1.5em;
+}
+
+#rsvp-form .form-check-input:checked {
+    background-color: #8f9779;
+    border-color: #8f9779;
+}
+
+#rsvp-form .form-check-label {
+    color: #8f9779 !important;
+}
+
+.btn.rsvp-submit-btn {
+    background-color: #8f9779 !important;
+    color: white !important;
+    border: 1px solid #8f9779 !important;
+    padding: 8px 40px;
+    font-family: 'eb garamond', serif;
+    font-size: 1em;
+}
+
+.btn.rsvp-submit-btn:hover {
+    background-color: #7a8866 !important;
+    border-color: #7a8866 !important;
+    color: white !important;
+}
+
+.rsvp-message {
+    margin-top: 1em;
+    font-size: 1em;
+}
+
+.rsvp-message-success {
+    color: #8f9779 !important;
+}
+
+.rsvp-message-error {
+    color: #c0392b !important;
 }
 
 /* ===== Gifts ===== */

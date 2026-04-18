@@ -68,3 +68,39 @@ document.querySelectorAll('nav a').forEach(function (link) {
         }
     });
 });
+
+// RSVP form submission
+(function () {
+    var form = document.getElementById('rsvp-form');
+    if (!form) return;
+
+    var submitBtn = form.querySelector('.rsvp-submit-btn');
+    var messageEl = document.getElementById('rsvp-message');
+
+    form.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        var selected = form.querySelector('input[name="attending"]:checked');
+        if (!selected) return;
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Submitting...';
+        messageEl.textContent = '';
+        messageEl.className = 'rsvp-message';
+
+        firebase.firestore().collection('rsvps').add({
+            attending: selected.value === 'yes',
+            submittedAt: firebase.firestore.FieldValue.serverTimestamp()
+        }).then(function () {
+            messageEl.textContent = 'Thank you for your RSVP!';
+            messageEl.classList.add('rsvp-message-success');
+            form.reset();
+        }).catch(function () {
+            messageEl.textContent = 'Something went wrong. Please try again.';
+            messageEl.classList.add('rsvp-message-error');
+        }).finally(function () {
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Submit';
+        });
+    });
+})();
