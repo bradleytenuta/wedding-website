@@ -7,7 +7,10 @@ firebase.initializeApp({
     authDomain: "bradley-louise-wedding.firebaseapp.com",
     messagingSenderId: "48953931834"
 });
-firebase.appCheck().activate('6Lc7BL4sAAAAACKhXvLdjCxLfPZxOBvzDMw0hkMW', true);
+firebase.appCheck().activate(
+    new firebase.appCheck.ReCaptchaEnterpriseProvider('6Lc7BL4sAAAAACKhXvLdjCxLfPZxOBvzDMw0hkMW'),
+    true
+);
 
 // Envelope overlay animation
 (function () {
