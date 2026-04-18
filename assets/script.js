@@ -1,3 +1,14 @@
+// Firebase initialisation
+firebase.initializeApp({
+    projectId: "bradley-louise-wedding",
+    appId: "1:48953931834:web:c43577a5e9a7dc7bf79d03",
+    storageBucket: "bradley-louise-wedding.firebasestorage.app",
+    apiKey: "AIzaSyCNttgsjEZ4xo9eRD1e7ejtDbgTAk3Ts0w",
+    authDomain: "bradley-louise-wedding.firebaseapp.com",
+    messagingSenderId: "48953931834"
+});
+firebase.appCheck().activate('6Lc7BL4sAAAAACKhXvLdjCxLfPZxOBvzDMw0hkMW', true);
+
 // Envelope overlay animation
 (function () {
     var overlay = document.getElementById('envelope-overlay');
