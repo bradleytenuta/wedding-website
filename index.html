@@ -179,17 +179,65 @@
     </section>
     <div class="rsvp-form-container">
         <form id="rsvp-form">
-            <fieldset>
-                <legend>Will you be attending the wedding?</legend>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="attending" id="attending-yes" value="yes" required>
-                    <label class="form-check-label" for="attending-yes">Yes</label>
+            <div id="rsvp-entries">
+                <div class="rsvp-entry">
+                    <fieldset class="rsvp-name-field">
+                        <legend>Full Name</legend>
+                        <div class="rsvp-autocomplete">
+                            <input type="text" class="form-control rsvp-name-input" name="fullname_1" placeholder="Start typing your full name..." autocomplete="off" required>
+                            <ul class="rsvp-autocomplete-list"></ul>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Will you be attending our wedding?</legend>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="attending_1" id="attending-yes-1" value="yes" required>
+                            <label class="form-check-label" for="attending-yes-1">Yes</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="attending_1" id="attending-no-1" value="no">
+                            <label class="form-check-label" for="attending-no-1">No</label>
+                        </div>
+                    </fieldset>
+                    <div class="rsvp-menu-field" style="display:none;">
+                        <legend class="rsvp-menu-title">Please select your meal choices</legend>
+                        <fieldset class="rsvp-menu-question">
+                            <legend>Starters</legend>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="starter_1" id="starter-1-1" value="Woodlands Prawn Cocktail">
+                                <label class="form-check-label" for="starter-1-1">Woodlands Prawn Cocktail</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="starter_1" id="starter-1-2" value="Roasted Tomato and Basil Soup">
+                                <label class="form-check-label" for="starter-1-2">Roasted Tomato and Basil Soup</label>
+                            </div>
+                        </fieldset>
+                        <fieldset class="rsvp-menu-question">
+                            <legend>Mains</legend>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="main_1" id="main-1-1" value="Roast Breast of Corn Fed Chicken">
+                                <label class="form-check-label" for="main-1-1">Roast Breast of Corn Fed Chicken</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="main_1" id="main-1-2" value="Wild Mushroom Risotto">
+                                <label class="form-check-label" for="main-1-2">Wild Mushroom Risotto</label>
+                            </div>
+                        </fieldset>
+                        <fieldset class="rsvp-menu-question">
+                            <legend>Dessert</legend>
+                            <div class="form-check">
+                                <input class="form-check-input" type="radio" name="dessert_1" id="dessert-1-1" value="Sticky Toffee Pudding" checked>
+                                <label class="form-check-label" for="dessert-1-1">Sticky Toffee Pudding</label>
+                            </div>
+                        </fieldset>
+                    </div>
+                    <fieldset class="rsvp-dietary-field" style="display:none;">
+                        <legend>Do you have any dietary requirements?</legend>
+                        <textarea class="form-control rsvp-dietary-input" name="dietary_1" rows="2" placeholder="E.g. vegetarian, gluten-free, nut allergy..."></textarea>
+                    </fieldset>
                 </div>
-                <div class="form-check">
-                    <input class="form-check-input" type="radio" name="attending" id="attending-no" value="no">
-                    <label class="form-check-label" for="attending-no">No</label>
-                </div>
-            </fieldset>
+            </div>
+            <button type="button" class="btn rsvp-add-btn" id="rsvp-add-another">RSVP for someone else</button>
             <button type="submit" class="btn rsvp-submit-btn">Submit</button>
             <div id="rsvp-message" class="rsvp-message"></div>
         </form>
@@ -216,6 +264,9 @@
             </div>
             <p class="gifts-description">
                 Your presence at our wedding is more than enough for us. However, if you would like to give a gift, we would be incredibly grateful for a contribution towards our honeymoon.
+            </p>
+            <p class="gifts-description">
+                <a href="https://pay.collctiv.com/our-honeymoon-fund-11366" style="color: #8f9779 !important;" target="_blank">Click here</a>
             </p>
         </div>
     </section>

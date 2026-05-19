@@ -583,6 +583,138 @@ nav ul {
     color: #8f9779 !important;
 }
 
+.rsvp-entry {
+    padding-bottom: 1.5em;
+    margin-bottom: 1.5em;
+    border-bottom: 1px dashed #8f9779;
+}
+
+.rsvp-entry:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.rsvp-name-field {
+    margin-bottom: 1em;
+}
+
+.rsvp-autocomplete {
+    position: relative;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.rsvp-name-input {
+    text-align: center;
+    border-color: #8f9779;
+    color: #8f9779 !important;
+}
+
+.rsvp-name-input:focus {
+    border-color: #8f9779;
+    box-shadow: 0 0 0 0.2rem rgba(143, 151, 121, 0.25);
+}
+
+.rsvp-menu-field {
+    margin-top: 1em;
+}
+
+.rsvp-menu-title {
+    font-size: 1.1em;
+    color: #8f9779 !important;
+    margin-bottom: 0.75em;
+}
+
+.rsvp-menu-question {
+    border: none;
+    padding: 0;
+    margin: 0 0 1em;
+}
+
+.rsvp-menu-question legend {
+    font-size: 1em;
+    color: #8f9779 !important;
+    margin-bottom: 0.5em;
+}
+
+#rsvp-form .rsvp-menu-question .form-check {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+    margin-right: 0;
+    margin-bottom: 0.4em;
+}
+
+.rsvp-dietary-field {
+    margin-top: 1em;
+}
+
+.rsvp-dietary-input {
+    max-width: 400px;
+    margin: 0 auto;
+    border-color: #8f9779;
+    color: #8f9779 !important;
+}
+
+.rsvp-dietary-input:focus {
+    border-color: #8f9779;
+    box-shadow: 0 0 0 0.2rem rgba(143, 151, 121, 0.25);
+}
+
+.rsvp-autocomplete-list {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 10;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #8f9779;
+    border-top: none;
+    border-radius: 0 0 5px 5px;
+    background: white;
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.rsvp-autocomplete-list:empty {
+    display: none;
+}
+
+.rsvp-autocomplete-list li {
+    padding: 10px 15px;
+    cursor: pointer;
+    color: #8f9779 !important;
+    text-align: left;
+    font-family: 'eb garamond', serif;
+}
+
+.rsvp-autocomplete-list li:hover {
+    background-color: #8f9779;
+    color: white !important;
+}
+
+.btn.rsvp-add-btn {
+    background-color: transparent !important;
+    color: #8f9779 !important;
+    border: 1px solid #8f9779 !important;
+    padding: 8px 30px;
+    font-family: 'eb garamond', serif;
+    font-size: 1em;
+    margin-bottom: 1em;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn.rsvp-add-btn:hover {
+    background-color: #8f9779 !important;
+    color: white !important;
+}
+
 .btn.rsvp-submit-btn {
     background-color: #8f9779 !important;
     color: white !important;

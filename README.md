@@ -44,15 +44,27 @@ These steps are required before the RSVP form will work:
 5. **Enforce App Check** — In App Check settings, click "Enforce" for Cloud Firestore
 6. **Deploy Firestore rules** — Run `firebase deploy --only firestore:rules`
 
-### Local Development
+### Local Development (App Check Debug Token)
 
-To test locally, add the following line in `assets/script.js` before the `firebase.appCheck().activate(...)` call:
+> **Important:** App Check will block all Firestore writes unless you register a debug token for local development.
 
-```javascript
-self.FIREBASE_APPCHECK_DEBUG_TOKEN = true;
-```
+`self.FIREBASE_APPCHECK_DEBUG_TOKEN = true;` is already set at the top of `assets/script.js` — it **must** appear before `firebase.initializeApp(...)` to work.
 
-The first time you load the site locally, the browser console will print a debug token. Register this token in Firebase console > App Check > Manage debug tokens. Remove the debug line before deploying to production.
+To get your debug token:
+
+1. Open HTML file in browser. No need to run firebase commands.
+2. Open browser DevTools (F12) → **Console** tab
+3. Look for the log line:
+   ```
+   App Check debug token: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+   ```
+4. Copy the token UUID
+5. Go to [Firebase Console](https://console.firebase.google.com/) → **App Check** → your web app → **Manage debug tokens**
+6. Click **Add debug token**, paste the UUID, give it a name (e.g. "local dev"), and save
+
+Once registered, Firestore writes will work locally. The token is per-browser — clearing site data or switching browsers will generate a new one that needs registering again.
+
+> **Before deploying to production**, remove or comment out the `self.FIREBASE_APPCHECK_DEBUG_TOKEN = true;` line so real users go through reCAPTCHA verification.
 
 ## Firebase Commands
 
