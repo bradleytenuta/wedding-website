@@ -365,7 +365,7 @@ nav ul {
     }
 }
 
-/* ===== Story photo carousel (mobile-first; width matches .home-container) ===== */
+/* ===== Story photo carousel — continuous film reel ===== */
 .story-carousel-outer {
     width: 100%;
     max-width: 1320px;
@@ -373,15 +373,59 @@ nav ul {
     overflow: hidden;
 }
 
-.story-carousel .carousel-inner {
-    background-color: #f0e1dd;
+.story-carousel.film-reel {
+    --film-frame-width: clamp(11rem, 34vw, 17.5rem);
+    --film-frame-height: clamp(14rem, 44vw, 22.5rem);
+    --film-frame-gap: 0.65rem;
+    --film-sprocket-height: 0.85rem;
+    --film-scroll-duration: 110s;
+    background: #000;
 }
 
-.story-carousel-img {
+.film-reel-sprocket {
+    height: var(--film-sprocket-height);
+    background-color: #000;
+    background-image: repeating-linear-gradient(
+        90deg,
+        #000 0,
+        #000 1rem,
+        #fffbf5 1rem,
+        #fffbf5 3rem
+    );
+    background-size: 3rem 100%;
+}
+
+.film-reel-viewport {
+    overflow: hidden;
+    background: #000;
+    padding: var(--film-frame-gap) 0;
+}
+
+.film-reel-track {
+    display: flex;
+    align-items: center;
+    gap: var(--film-frame-gap);
+    width: max-content;
+    padding: 0 var(--film-frame-gap);
+    animation: film-reel-scroll var(--film-scroll-duration) linear infinite;
+    animation-play-state: running;
+    will-change: transform;
+}
+
+.film-frame {
+    flex: 0 0 auto;
+    width: var(--film-frame-width);
+    padding: var(--film-frame-gap);
+    background: #000;
+    border-radius: 0.65rem;
+    box-sizing: content-box;
+}
+
+.film-frame .story-carousel-img {
     display: block;
-    width: 100%;
-    height: 55vw;
-    max-height: 720px;
+    width: var(--film-frame-width);
+    height: var(--film-frame-height);
+    border-radius: 0.5rem;
     object-fit: cover;
     object-position: center;
     filter: grayscale(100%);
@@ -389,9 +433,12 @@ nav ul {
     user-select: none;
 }
 
-@media (prefers-reduced-motion: reduce) {
-    .story-carousel.carousel .carousel-item {
-        transition: none;
+@keyframes film-reel-scroll {
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+    to {
+        transform: translate3d(-50%, 0, 0);
     }
 }
 

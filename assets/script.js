@@ -380,11 +380,19 @@ document.querySelectorAll('nav a').forEach(function (link) {
     });
 })();
 
-(function initStoryCarousel() {
-    var el = document.getElementById('storyCarousel');
-    if (!el || typeof bootstrap === 'undefined') return;
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        var carousel = bootstrap.Carousel.getOrCreateInstance(el);
-        carousel.pause();
-    }
+(function initStoryFilmReel() {
+    var track = document.querySelector('.film-reel-track');
+    if (!track) return;
+
+    var frames = track.querySelectorAll('.film-frame');
+    frames.forEach(function (frame) {
+        var clone = frame.cloneNode(true);
+        clone.setAttribute('aria-hidden', 'true');
+        clone.querySelectorAll('img').forEach(function (img) {
+            img.alt = '';
+            img.removeAttribute('fetchpriority');
+            img.loading = 'lazy';
+        });
+        track.appendChild(clone);
+    });
 })();
