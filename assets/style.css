@@ -692,6 +692,22 @@ nav ul {
     box-shadow: 0 0 0 0.2rem rgba(143, 151, 121, 0.25);
 }
 
+.rsvp-name-input.rsvp-name-input-invalid {
+    border-color: #c0392b;
+}
+
+.rsvp-name-input.rsvp-name-input-invalid:focus {
+    border-color: #c0392b;
+    box-shadow: 0 0 0 0.2rem rgba(192, 57, 43, 0.25);
+}
+
+.rsvp-name-error {
+    margin: 0.5em 0 0;
+    font-size: 0.95em;
+    color: #c0392b !important;
+    text-align: center;
+}
+
 .rsvp-menu-field {
     margin-top: 1em;
 }

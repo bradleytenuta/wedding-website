@@ -155,6 +155,37 @@ document.querySelectorAll('nav a').forEach(function (link) {
         });
     }
 
+    function isValidGuest(name) {
+        return guestList.some(function (g) {
+            return g.toLowerCase() === name.toLowerCase();
+        });
+    }
+
+    var NAME_ERROR_TEXT = 'Please enter a name from the dropdown.';
+
+    function clearNameError(nameInput) {
+        nameInput.classList.remove('rsvp-name-input-invalid');
+        var field = nameInput.closest('.rsvp-name-field');
+        if (!field) return;
+        var err = field.querySelector('.rsvp-name-error');
+        if (err) err.remove();
+    }
+
+    function showNameError(nameInput) {
+        nameInput.classList.add('rsvp-name-input-invalid');
+        var field = nameInput.closest('.rsvp-name-field');
+        if (!field || field.querySelector('.rsvp-name-error')) return;
+        var err = document.createElement('p');
+        err.className = 'rsvp-name-error';
+        err.setAttribute('role', 'alert');
+        err.textContent = NAME_ERROR_TEXT;
+        field.appendChild(err);
+    }
+
+    function clearAllNameErrors() {
+        form.querySelectorAll('.rsvp-name-input').forEach(clearNameError);
+    }
+
     function isAttendingYes(entry) {
         var selected = entry.querySelector('input[name^="attending"]:checked');
         return selected && selected.value === 'yes';
@@ -204,6 +235,7 @@ document.querySelectorAll('nav a').forEach(function (link) {
         var entry = input.closest('.rsvp-entry');
 
         input.addEventListener('input', function () {
+            clearNameError(input);
             var val = input.value.trim().toLowerCase();
             list.innerHTML = '';
             updateConditionalFields(entry);
@@ -309,17 +341,34 @@ document.querySelectorAll('nav a').forEach(function (link) {
     form.addEventListener('submit', function (e) {
         e.preventDefault();
 
+        clearAllNameErrors();
+        messageEl.textContent = '';
+        messageEl.className = 'rsvp-message';
+
+        var entries = entriesContainer.querySelectorAll('.rsvp-entry');
+        var invalidNameInputs = [];
+        for (var j = 0; j < entries.length; j++) {
+            var entryNameInput = entries[j].querySelector('.rsvp-name-input');
+            if (!isValidGuest(entryNameInput.value.trim())) {
+                invalidNameInputs.push(entryNameInput);
+            }
+        }
+        if (invalidNameInputs.length) {
+            invalidNameInputs.forEach(showNameError);
+            invalidNameInputs[0].focus();
+            return;
+        }
+
         if (!isFirebaseReady()) {
             messageEl.textContent = 'Unable to submit right now. Please refresh and try again.';
             messageEl.className = 'rsvp-message rsvp-message-error';
             return;
         }
 
-        var entries = entriesContainer.querySelectorAll('.rsvp-entry');
         var rsvps = [];
         for (var i = 0; i < entries.length; i++) {
             var nameInput = entries[i].querySelector('.rsvp-name-input');
-            var selected = entries[i].querySelector('input[type="radio"]:checked');
+            var selected = entries[i].querySelector('input[name^="attending"]:checked');
             var dietaryInput = entries[i].querySelector('.rsvp-dietary-input');
             var starterSelected = entries[i].querySelector('input[name^="starter"]:checked');
             var mainSelected = entries[i].querySelector('input[name^="main"]:checked');
