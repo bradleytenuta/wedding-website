@@ -374,8 +374,7 @@ nav ul {
 }
 
 .story-carousel.film-reel {
-    --film-frame-width: clamp(11rem, 34vw, 17.5rem);
-    --film-frame-height: clamp(14rem, 44vw, 22.5rem);
+    --film-frame-size: clamp(11rem, 34vw, 17.5rem);
     --film-frame-gap: 0.65rem;
     --film-sprocket-height: 0.85rem;
     --film-scroll-duration: 110s;
@@ -414,7 +413,7 @@ nav ul {
 
 .film-frame {
     flex: 0 0 auto;
-    width: var(--film-frame-width);
+    width: var(--film-frame-size);
     padding: var(--film-frame-gap);
     background: #000;
     border-radius: 0.65rem;
@@ -423,8 +422,8 @@ nav ul {
 
 .film-frame .story-carousel-img {
     display: block;
-    width: var(--film-frame-width);
-    height: var(--film-frame-height);
+    width: var(--film-frame-size);
+    height: var(--film-frame-size);
     border-radius: 0.5rem;
     object-fit: cover;
     object-position: center;
