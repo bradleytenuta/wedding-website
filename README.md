@@ -8,6 +8,8 @@ A static wedding website for Bradley & Louise, hosted on Firebase Hosting. RSVP 
 ├── index.html              Main (and only) HTML page
 ├── assets/
 │   ├── style.css           All styles, organised by section
+│   ├── fonts.css           Self-hosted web fonts (Bellefair, Cormorant Garamond)
+│   ├── fonts/              WOFF2 font files (served from same origin for mobile browser compatibility)
 │   ├── script.js           Firebase init, envelope animation, countdown, RSVP form, smooth scroll
 │   ├── botanical-border.jpg   Hero background image
 │   └── woodlands-park.png     Venue photo
@@ -44,6 +46,24 @@ These steps are required before the RSVP form will work:
 5. **Enforce App Check** — In App Check settings, click "Enforce" for Cloud Firestore
 6. **Deploy Firestore rules** — Run `firebase deploy --only firestore:rules`
 
+### Previewing locally
+
+**Do not open `index.html` directly** (double-click or `file://` in the address bar). Browsers block self-hosted fonts and many scripts on `file://` due to CORS, which causes console errors and broken styling.
+
+Always preview over HTTP:
+
+```bash
+firebase serve --only hosting
+```
+
+Then open **http://localhost:5000** in your browser.
+
+If you do not have the Firebase CLI handy, any static server works, for example:
+
+```bash
+npx --yes serve .
+```
+
 ### Local Development (App Check Debug Token)
 
 > **Important:** App Check will block all Firestore writes unless you register a debug token for local development.
@@ -52,7 +72,7 @@ These steps are required before the RSVP form will work:
 
 To get your debug token:
 
-1. Open HTML file in browser. No need to run firebase commands.
+1. Run `firebase serve --only hosting` and open **http://localhost:5000** (not `file://`).
 2. Open browser DevTools (F12) → **Console** tab
 3. Look for the log line:
    ```

@@ -1,24 +1,62 @@
-self.FIREBASE_APPCHECK_DEBUG_TOKEN = true;
-// Firebase initialisation
-firebase.initializeApp({
-    projectId: "bradley-louise-wedding",
-    appId: "1:48953931834:web:c43577a5e9a7dc7bf79d03",
-    storageBucket: "bradley-louise-wedding.firebasestorage.app",
-    apiKey: "AIzaSyCNttgsjEZ4xo9eRD1e7ejtDbgTAk3Ts0w",
-    authDomain: "bradley-louise-wedding.firebaseapp.com",
-    messagingSenderId: "48953931834"
-});
-firebase.appCheck().activate(
-    new firebase.appCheck.ReCaptchaEnterpriseProvider('6Lc7BL4sAAAAACKhXvLdjCxLfPZxOBvzDMw0hkMW'),
-    true
-);
+/**
+ * Firebase — wrapped so a failure here never blocks envelope, countdown, or RSVP UI.
+ */
+(function initFirebase() {
+    try {
+        if (typeof firebase === 'undefined') return;
+        if (!firebase.apps.length) {
+            firebase.initializeApp({
+                projectId: 'bradley-louise-wedding',
+                appId: '1:48953931834:web:c43577a5e9a7dc7bf79d03',
+                storageBucket: 'bradley-louise-wedding.firebasestorage.app',
+                apiKey: 'AIzaSyCNttgsjEZ4xo9eRD1e7ejtDbgTAk3Ts0w',
+                authDomain: 'bradley-louise-wedding.firebaseapp.com',
+                messagingSenderId: '48953931834'
+            });
+        }
+        firebase.appCheck().activate(
+            new firebase.appCheck.ReCaptchaEnterpriseProvider('6Lc7BL4sAAAAACKhXvLdjCxLfPZxOBvzDMw0hkMW'),
+            true
+        );
+    } catch (err) {
+        console.warn('Firebase unavailable:', err);
+    }
+})();
 
-// Envelope overlay animation
+function isFirebaseReady() {
+    return typeof firebase !== 'undefined' && firebase.apps && firebase.apps.length > 0;
+}
+
+/** Reject if a promise does not settle within ms (prevents infinite "Submitting..." on slow/blocked App Check). */
+function withTimeout(promise, ms) {
+    return new Promise(function (resolve, reject) {
+        var timer = setTimeout(function () {
+            reject(new Error('timeout'));
+        }, ms);
+        promise.then(
+            function (value) {
+                clearTimeout(timer);
+                resolve(value);
+            },
+            function (err) {
+                clearTimeout(timer);
+                reject(err);
+            }
+        );
+    });
+}
+
+function waitForAppCheckToken() {
+    if (!firebase.appCheck) return Promise.resolve();
+    return firebase.appCheck().getToken(false);
+}
+
+// Envelope overlay animation (click + touch for iOS)
 (function () {
     var overlay = document.getElementById('envelope-overlay');
     if (!overlay) return;
 
-    overlay.addEventListener('click', function () {
+    function openEnvelope() {
         if (overlay.classList.contains('opening')) return;
         overlay.classList.add('opening');
 
@@ -40,6 +78,14 @@ firebase.appCheck().activate(
             overlay.remove();
             document.body.classList.remove('no-scroll');
         }, 4800);
+    }
+
+    overlay.addEventListener('click', openEnvelope);
+    overlay.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            openEnvelope();
+        }
     });
 })();
 
@@ -77,9 +123,12 @@ firebase.appCheck().activate(
 document.querySelectorAll('nav a').forEach(function (link) {
     link.addEventListener('click', function (e) {
         var href = link.getAttribute('href');
-        if (href.startsWith('#')) {
+        if (href && href.charAt(0) === '#') {
             e.preventDefault();
-            document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
+            var target = document.querySelector(href);
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
         }
     });
 });
@@ -260,6 +309,12 @@ document.querySelectorAll('nav a').forEach(function (link) {
     form.addEventListener('submit', function (e) {
         e.preventDefault();
 
+        if (!isFirebaseReady()) {
+            messageEl.textContent = 'Unable to submit right now. Please refresh and try again.';
+            messageEl.className = 'rsvp-message rsvp-message-error';
+            return;
+        }
+
         var entries = entriesContainer.querySelectorAll('.rsvp-entry');
         var rsvps = [];
         for (var i = 0; i < entries.length; i++) {
@@ -293,7 +348,12 @@ document.querySelectorAll('nav a').forEach(function (link) {
             batch.set(ref, rsvp);
         });
 
-        batch.commit().then(function () {
+        var SUBMIT_TIMEOUT_MS = 25000;
+        var submitWork = waitForAppCheckToken().then(function () {
+            return batch.commit();
+        });
+
+        withTimeout(submitWork, SUBMIT_TIMEOUT_MS).then(function () {
             messageEl.textContent = 'Thank you for your RSVP!';
             messageEl.classList.add('rsvp-message-success');
             form.reset();
@@ -304,8 +364,13 @@ document.querySelectorAll('nav a').forEach(function (link) {
             var remainingEntry = entriesContainer.querySelector('.rsvp-entry');
             remainingEntry.querySelector('.rsvp-menu-field').style.display = 'none';
             remainingEntry.querySelector('.rsvp-dietary-field').style.display = 'none';
-        }).catch(function () {
-            messageEl.textContent = 'Something went wrong. Please try again.';
+        }).catch(function (err) {
+            if (err && err.message === 'timeout') {
+                messageEl.textContent =
+                    'Submission is taking too long. Try Wi-Fi, turn off ad blockers or private browsing, refresh the page, and submit again.';
+            } else {
+                messageEl.textContent = 'Something went wrong. Please try again.';
+            }
             messageEl.classList.add('rsvp-message-error');
         }).finally(function () {
             submitBtn.disabled = false;
@@ -313,4 +378,13 @@ document.querySelectorAll('nav a').forEach(function (link) {
             submitBtn.textContent = 'Submit';
         });
     });
+})();
+
+(function initStoryCarousel() {
+    var el = document.getElementById('storyCarousel');
+    if (!el || typeof bootstrap === 'undefined') return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        var carousel = bootstrap.Carousel.getOrCreateInstance(el);
+        carousel.pause();
+    }
 })();

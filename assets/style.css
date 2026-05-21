@@ -1,3 +1,15 @@
+/* ===== Cross-browser base ===== */
+html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+:root {
+    --bs-body-font-family: 'Bellefair', Georgia, 'Times New Roman', serif;
+    --bs-font-sans-serif: 'Bellefair', Georgia, 'Times New Roman', serif;
+    --bs-font-serif: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+}
+
 /* ===== Envelope Intro Overlay ===== */
 body.no-scroll {
     overflow: hidden;
@@ -13,6 +25,9 @@ body.no-scroll {
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+    user-select: none;
 }
 
 .envelope-hint {
@@ -182,7 +197,7 @@ body.no-scroll {
 
 /* ===== Base Styles ===== */
 body {
-    font-family: 'Bellefair', serif !important;
+    font-family: 'Bellefair', Georgia, 'Times New Roman', serif !important;
     margin: 0;
     padding: 0;
     background-color: #fffbf5 !important;
@@ -190,7 +205,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Cormorant Garamond', serif !important;
+    font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif !important;
 }
 
 h2 {
@@ -370,6 +385,36 @@ nav ul {
     }
     #description {
         font-size: 16px;
+    }
+}
+
+/* ===== Story photo carousel (mobile-first; width matches .home-container) ===== */
+.story-carousel-outer {
+    width: 100%;
+    max-width: 1320px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.story-carousel .carousel-inner {
+    background-color: #f0e1dd;
+}
+
+.story-carousel-img {
+    display: block;
+    width: 100%;
+    height: 55vw;
+    max-height: 720px;
+    object-fit: cover;
+    object-position: center;
+    filter: grayscale(100%);
+    -webkit-user-drag: none;
+    user-select: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .story-carousel.carousel .carousel-item {
+        transition: none;
     }
 }
 

@@ -3,22 +3,19 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="format-detection" content="telephone=no">
     <title>Wedding Website</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bellefair&family=Cormorant+Garamond:wght@400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="assets/style.css">
+    <link rel="preload" href="assets/fonts/bellefair.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="assets/fonts/cormorant-garamond.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="assets/fonts.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-
-    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-check-compat.js"></script>
+    <link rel="stylesheet" href="assets/style.css">
 </head>
 
 <body class="no-scroll">
     <!-- Envelope Intro Overlay -->
-    <div id="envelope-overlay">
+    <div id="envelope-overlay" role="button" tabindex="0" aria-label="Open wedding invitation">
         <p class="envelope-hint">Click to open me</p>
         <div class="envelope-intro">
             <div class="envelope-lining"></div>
@@ -79,9 +76,48 @@
         </div>
     </div>
 
+    <div class="story-carousel-outer">
+        <div id="storyCarousel" class="carousel slide story-carousel" data-bs-ride="carousel" data-bs-interval="6000" data-bs-touch="true" data-bs-pause="hover" aria-label="Bradley and Louise photo gallery">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="assets/images/image1.jpeg" class="story-carousel-img" alt="Bradley and Louise" width="1200" height="1600" decoding="async" fetchpriority="high">
+                </div>
+                <div class="carousel-item">
+                    <img src="assets/images/image2.jpeg" class="story-carousel-img" alt="Bradley and Louise" width="1200" height="1600" loading="lazy" decoding="async">
+                </div>
+                <div class="carousel-item">
+                    <img src="assets/images/image3.jpeg" class="story-carousel-img" alt="Bradley and Louise" width="1200" height="1600" loading="lazy" decoding="async">
+                </div>
+                <div class="carousel-item">
+                    <img src="assets/images/image4.jpeg" class="story-carousel-img" alt="Bradley and Louise" width="1200" height="1600" loading="lazy" decoding="async">
+                </div>
+                <div class="carousel-item">
+                    <img src="assets/images/image5.jpeg" class="story-carousel-img" alt="Bradley and Louise" width="1200" height="1600" loading="lazy" decoding="async">
+                </div>
+                <div class="carousel-item">
+                    <img src="assets/images/image6.jpeg" class="story-carousel-img" alt="Bradley and Louise" width="1200" height="1600" loading="lazy" decoding="async">
+                </div>
+                <div class="carousel-item">
+                    <img src="assets/images/image7.jpeg" class="story-carousel-img" alt="Bradley and Louise" width="1200" height="1600" loading="lazy" decoding="async">
+                </div>
+                <div class="carousel-item">
+                    <img src="assets/images/image8.jpeg" class="story-carousel-img" alt="Bradley and Louise" width="1200" height="1600" loading="lazy" decoding="async">
+                </div>
+                <div class="carousel-item">
+                    <img src="assets/images/image9.jpeg" class="story-carousel-img" alt="Bradley and Louise" width="1200" height="1600" loading="lazy" decoding="async">
+                </div>
+                <div class="carousel-item">
+                    <img src="assets/images/image10.jpeg" class="story-carousel-img" alt="Bradley and Louise" width="1200" height="1600" loading="lazy" decoding="async">
+                </div>
+                <div class="carousel-item">
+                    <img src="assets/images/image11.jpeg" class="story-carousel-img" alt="Bradley and Louise" width="1200" height="1600" loading="lazy" decoding="async">
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Our Story -->
     <section id="story">
-        <!-- Carousel Goes here -->
         <h2>Our Story</h2>
         <div class="vertical-divide"></div>
         <p>Our story began long before we ever realised it would lead us here. We first met in nursery, growing up around each other without knowing that one day we would build a life together.</p>
@@ -273,11 +309,11 @@
         <div class="vertical-divide"></div>
         <div class="accordion" id="faqAccordion">
             <div class="accordion-item">
-                <h2 class="accordion-header">
+                <h5 class="accordion-header">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
                         What is the dress code?
                     </button>
-                </h2>
+                </h5>
                 <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                     <div class="accordion-body">
                         <p>We'd love for everyone to dress to celebrate! Our wedding party will be wearing navy and sage green, so you'll see those colours on the day. Most importantly, wear something you love and feel great in, and get ready to dance the night away!</p>
@@ -285,11 +321,11 @@
                 </div>
             </div>
             <div class="accordion-item">
-                <h2 class="accordion-header">
+                <h5 class="accordion-header">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
                         How do I get to the wedding and is there parking?
                     </button>
-                </h2>
+                </h5>
                 <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                     <div class="accordion-body">
                         <p>Our wedding venue is in Cobham, Surrey, located just off the A245 Portsmouth Road and close to Cobham & Stoke D'Abernon train station.</p>
@@ -300,11 +336,11 @@
                 </div>
             </div>
             <div class="accordion-item">
-                <h2 class="accordion-header">
+                <h5 class="accordion-header">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
                         Are children welcome?
                     </button>
-                </h2>
+                </h5>
                 <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                     <div class="accordion-body">
                         <p>While we adore little ones, our celebration is primarily for adults. Only children from our close family are invited, so everyone else can relax, enjoy the day, and celebrate with us.</p>
@@ -312,11 +348,11 @@
                 </div>
             </div>
             <div class="accordion-item">
-                <h2 class="accordion-header">
+                <h5 class="accordion-header">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4">
                         Can dietary requirements be accommodated?
                     </button>
-                </h2>
+                </h5>
                 <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                     <div class="accordion-body">
                         <p>Absolutely! Please let us know your needs when you RSVP so everyone can enjoy the meal. We'll make sure no one goes hungry.</p>
@@ -324,11 +360,11 @@
                 </div>
             </div>
             <div class="accordion-item">
-                <h2 class="accordion-header">
+                <h5 class="accordion-header">
                     <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5">
                         Can we take photos during the ceremony?
                     </button>
-                </h2>
+                </h5>
                 <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
                     <div class="accordion-body">
                         <p>We'd love for everyone to be fully present during the ceremony—so we kindly ask for an unplugged ceremony. Don't worry, our photographer and videographer will capture every special moment, and we'll share the photos with you afterwards.</p>
@@ -348,7 +384,10 @@
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-    <script src="assets/script.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+    <script defer src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-check-compat.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    <script defer src="assets/script.js"></script>
 </body>
 </html>

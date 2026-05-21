@@ -1,0 +1,32 @@
+/* Self-hosted fonts — avoids third-party blocking in iOS Chrome and other strict browsers */
+@font-face {
+    font-family: 'Bellefair';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('fonts/bellefair.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Cormorant Garamond';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('fonts/cormorant-garamond.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Cormorant Garamond';
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;
+    src: url('fonts/cormorant-garamond.woff2') format('woff2');
+}
+
+@font-face {
+    font-family: 'Cormorant Garamond';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url('fonts/cormorant-garamond.woff2') format('woff2');
+}
