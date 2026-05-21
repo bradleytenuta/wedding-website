@@ -66,18 +66,18 @@ function waitForAppCheckToken() {
         var letter = document.querySelector('.envelope-letter');
 
         hint.classList.add('hide');
-        setTimeout(function () { seal.classList.add('break'); }, 100);
-        setTimeout(function () { flap.classList.add('open'); }, 500);
+        setTimeout(function () { seal.classList.add('break'); }, 120);
+        setTimeout(function () { flap.classList.add('open'); }, 600);
         setTimeout(function () {
             flap.style.zIndex = '0';
             letter.classList.add('slide-out');
-        }, 1900);
-        setTimeout(function () { letter.style.zIndex = '10'; }, 2950);
-        setTimeout(function () { overlay.classList.add('fade-out'); }, 3800);
+        }, 2300);
+        setTimeout(function () { letter.style.zIndex = '10'; }, 3560);
+        setTimeout(function () { overlay.classList.add('fade-out'); }, 4600);
         setTimeout(function () {
             overlay.remove();
             document.body.classList.remove('no-scroll');
-        }, 4800);
+        }, 6300);
     }
 
     overlay.addEventListener('click', openEnvelope);
