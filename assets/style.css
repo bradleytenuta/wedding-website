@@ -149,37 +149,14 @@ body.no-scroll {
     transform: translate(-50%, -50%) scale(1.4) rotate(15deg);
 }
 
-.wax-seal-circle {
+.wax-seal-img {
+    display: block;
     width: 100%;
     height: 100%;
-    border-radius: 50% 48% 52% 47% / 48% 52% 47% 50%;
-    background: radial-gradient(circle at 38% 32%, #d44050 0%, #b82838 28%, #8b1a2b 65%, #6d1420 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow:
-        inset 0 2px 5px rgba(255, 180, 180, 0.15),
-        inset 0 -3px 6px rgba(0, 0, 0, 0.3),
-        0 2px 8px rgba(0, 0, 0, 0.25);
-    position: relative;
-}
-
-.wax-seal-circle::after {
-    content: '';
-    position: absolute;
-    width: 78%;
-    height: 78%;
-    border: 1.5px solid rgba(255, 255, 255, 0.12);
-    border-radius: inherit;
-}
-
-.wax-seal-text {
-    color: rgba(255, 210, 210, 0.65) !important;
-    font-size: 12px !important;
-    letter-spacing: 1px;
-    font-weight: 600;
-    z-index: 1;
-    text-align: center !important;
+    object-fit: contain;
+    pointer-events: none;
+    -webkit-user-drag: none;
+    user-select: none;
 }
 
 #envelope-overlay.fade-out {
