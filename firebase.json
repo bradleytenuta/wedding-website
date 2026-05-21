@@ -8,7 +8,12 @@
       ".firebase",
       ".git",
       ".gitignore",
-      "**/node_modules/**"
+      ".gitattributes",
+      ".github/**",
+      "**/node_modules/**",
+      "README.md",
+      "**/*.md",
+      "**/*.xcf"
     ],
     "headers": [
       {
