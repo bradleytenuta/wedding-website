@@ -1,0 +1,23 @@
+{
+  "name": "Bradley & Louise",
+  "short_name": "B & L",
+  "description": "Wedding celebration — Bradley & Louise",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#fffbf5",
+  "theme_color": "#fffbf5",
+  "icons": [
+    {
+      "src": "assets/icon/seal.png",
+      "sizes": "634x648",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "assets/icon/seal.png",
+      "sizes": "634x648",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}
