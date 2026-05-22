@@ -312,7 +312,8 @@ nav ul {
 
 .home-label-content > h2 {
     color: white !important;
-    font-size: 42px;
+    font-family: 'Imperial Script', cursive !important;
+    font-size: 75px;
 }
 
 .home-label-content > p {
@@ -351,7 +352,7 @@ nav ul {
         transform: scale(1.1);
     }
     .home-label-content > h2 {
-        font-size: 26px;
+        font-size: 42px;
         margin-bottom: 6px !important;
     }
     .home-inner {

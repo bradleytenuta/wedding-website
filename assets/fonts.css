@@ -30,3 +30,11 @@
     font-display: swap;
     src: url('fonts/cormorant-garamond.woff2') format('woff2');
 }
+
+@font-face {
+    font-family: 'Imperial Script';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('fonts/imperial-script.woff2') format('woff2');
+}
