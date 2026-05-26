@@ -247,7 +247,13 @@ document.querySelectorAll('nav a').forEach(function (link) {
         'Michelle Sparrow',
         'Colin Sparrow ',
         'Oscar Chan',
-        'Tania Jansen Van Rensburg'
+        'Tania Jansen Van Rensburg',
+        'Arthur Roche',
+        'Logan Rooney',
+        'Luke Rooney',
+        'Isla Barker',
+        'Niel Griffin',
+        'Sue Griffin'
     ];
 
     var guestList = dayGuests.concat(eveningGuests);
