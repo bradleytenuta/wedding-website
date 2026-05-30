@@ -16,6 +16,9 @@ A static wedding website for Bradley & Louise, hosted on Firebase Hosting. RSVP 
 ├── firestore.rules         Firestore security rules (create-only on /rsvps)
 ├── firebase.json           Firebase Hosting + Firestore configuration
 ├── .firebaserc             Firebase project alias (bradley-louise-wedding)
+├── export-rsvps.ps1        PowerShell script to export RSVPs to CSV
+├── export-rsvps.js         Node.js export logic (called by export-rsvps.ps1)
+├── package.json            Node dependencies for the RSVP export script
 └── .gitignore              Git ignore rules
 ```
 
@@ -85,6 +88,49 @@ To get your debug token:
 Once registered, Firestore writes will work locally. The token is per-browser — clearing site data or switching browsers will generate a new one that needs registering again.
 
 > **Before deploying to production**, remove or comment out the `self.FIREBASE_APPCHECK_DEBUG_TOKEN = true;` line so real users go through reCAPTCHA verification.
+
+## Downloading RSVPs
+
+RSVP submissions can be exported from Firestore to a CSV file (one row per RSVP) using `export-rsvps.ps1`. The script uses the Firebase Admin SDK with a service account, because Firestore rules only allow **create** from the website — not read.
+
+### Usage
+
+1. **Get credentials** (one-time). Download a service account key from [Firebase Console](https://console.firebase.google.com/) → Project Settings → Service Accounts → Generate new private key.
+
+2. **Set the key path** in PowerShell:
+
+   ```powershell
+   $env:GOOGLE_APPLICATION_CREDENTIALS = "C:\path\to\service-account-key.json"
+   ```
+
+3. **Run the export**:
+
+   ```powershell
+   .\export-rsvps.ps1
+   ```
+
+   Or specify an output file:
+
+   ```powershell
+   .\export-rsvps.ps1 -OutputPath ".\rsvps.csv"
+   ```
+
+The first run installs dependencies automatically. Output defaults to `rsvps-export-YYYYMMDD-HHMMSS.csv` in the project root.
+
+### CSV columns
+
+One row per RSVP document in the `rsvps` collection:
+
+- `documentId`
+- `fullName`
+- `attending` (`yes` / `no`)
+- `starter`
+- `main`
+- `dessert`
+- `dietary`
+- `submittedAt` (ISO 8601)
+
+Rows are sorted by submission time (newest first), then by name.
 
 ## Firebase Commands
 

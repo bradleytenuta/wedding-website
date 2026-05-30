@@ -1,0 +1,11 @@
+{
+  "name": "wedding-website",
+  "private": true,
+  "description": "Bradley & Louise wedding website",
+  "scripts": {
+    "export-rsvps": "node export-rsvps.js"
+  },
+  "dependencies": {
+    "firebase-admin": "^13.4.0"
+  }
+}
