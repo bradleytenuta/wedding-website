@@ -272,6 +272,10 @@ document.querySelectorAll('nav a').forEach(function (link) {
         'Chelsea Rawlings',
         'Reggie Howard',
         'Emma Parker',
+        'Sharon Spraggon',
+        'Paul Bendall',
+        'Josh Badrick',
+        'Patrick McMahon',
     ];
 
     var guestList = dayGuests.concat(eveningGuests);
