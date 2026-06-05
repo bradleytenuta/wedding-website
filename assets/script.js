@@ -212,6 +212,7 @@ document.querySelectorAll('nav a').forEach(function (link) {
         'Martin Hammond',
         'Tony Hammond',
         'Sofia Proud',
+        'Sinead Pickford',
     ];
 
     var eveningGuests = [
@@ -238,7 +239,6 @@ document.querySelectorAll('nav a').forEach(function (link) {
         'Callum Pickford',
         'Edel McMahon',
         'Maeve McMahon',
-        'Sinead Pickford',
         'Kieran Chittock',
         'Bruno Duarte',
         'Kinnard Lowe',
@@ -276,6 +276,10 @@ document.querySelectorAll('nav a').forEach(function (link) {
         'Paul Bendall',
         'Josh Badrick',
         'Patrick McMahon',
+        'Sue Lambi',
+        'Carlos Lambi',
+        'Deann McCoy',
+        'Ollie McCoy',
     ];
 
     var guestList = dayGuests.concat(eveningGuests);
