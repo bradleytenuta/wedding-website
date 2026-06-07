@@ -176,6 +176,7 @@ document.querySelectorAll('nav a').forEach(function (link) {
         'Matthew Wood',
         'Isabelle Tudor',
         'Michal Karpuk',
+        'Liv Raciniewska',
         'Maryam Aziz',
         'Julio Petalio',
         'Ryan Ashton',
