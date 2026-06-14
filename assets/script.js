@@ -203,7 +203,6 @@ document.querySelectorAll('nav a').forEach(function (link) {
         'Robert Micklem',
         'Catrin Dawson',
         'Julian Bremner',
-        'Rosie Deller',
         'Juliet Carr',
         'Victoria Laycock',
         'Doug Gilder',
@@ -229,6 +228,7 @@ document.querySelectorAll('nav a').forEach(function (link) {
         'Sian Lynch',
         'Shannon Lynch',
         'John Lynch Jr',
+        'Rosie Deller',
         'Clare Russell',
         'Danny Russell',
         'Emily Granger',
@@ -281,6 +281,7 @@ document.querySelectorAll('nav a').forEach(function (link) {
         'Carlos Lambi',
         'Deann McCoy',
         'Ollie McCoy',
+        'Angela Blackman',
     ];
 
     var guestList = dayGuests.concat(eveningGuests);
