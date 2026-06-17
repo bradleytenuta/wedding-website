@@ -282,6 +282,7 @@ document.querySelectorAll('nav a').forEach(function (link) {
         'Deann McCoy',
         'Ollie McCoy',
         'Angela Blackman',
+        'Michael McCarthy'
     ];
 
     var guestList = dayGuests.concat(eveningGuests);
