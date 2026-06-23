@@ -282,7 +282,11 @@ document.querySelectorAll('nav a').forEach(function (link) {
         'Deann McCoy',
         'Ollie McCoy',
         'Angela Blackman',
-        'Michael McCarthy'
+        'Michael McCarthy',
+        'Ella Quashie',
+        'Kane Tenuta',
+        'Ottavio Tenuta',
+        'Carolyn Tenuta'
     ];
 
     var guestList = dayGuests.concat(eveningGuests);
@@ -416,58 +420,58 @@ document.querySelectorAll('nav a').forEach(function (link) {
         entry.className = 'rsvp-entry';
         entry.innerHTML =
             '<fieldset class="rsvp-name-field">' +
-                '<legend>Full Name</legend>' +
-                '<div class="rsvp-autocomplete">' +
-                    '<input type="text" class="form-control rsvp-name-input" name="fullname_' + entryCount + '" placeholder="Start typing their name..." autocomplete="off" required>' +
-                    '<ul class="rsvp-autocomplete-list"></ul>' +
-                '</div>' +
+            '<legend>Full Name</legend>' +
+            '<div class="rsvp-autocomplete">' +
+            '<input type="text" class="form-control rsvp-name-input" name="fullname_' + entryCount + '" placeholder="Start typing their name..." autocomplete="off" required>' +
+            '<ul class="rsvp-autocomplete-list"></ul>' +
+            '</div>' +
             '</fieldset>' +
             '<fieldset>' +
-                '<legend>Will they be attending the wedding?</legend>' +
-                '<div class="form-check">' +
-                    '<input class="form-check-input" type="radio" name="attending_' + entryCount + '" id="attending-yes-' + entryCount + '" value="yes" required>' +
-                    '<label class="form-check-label" for="attending-yes-' + entryCount + '">Yes</label>' +
-                '</div>' +
-                '<div class="form-check">' +
-                    '<input class="form-check-input" type="radio" name="attending_' + entryCount + '" id="attending-no-' + entryCount + '" value="no">' +
-                    '<label class="form-check-label" for="attending-no-' + entryCount + '">No</label>' +
-                '</div>' +
+            '<legend>Will they be attending the wedding?</legend>' +
+            '<div class="form-check">' +
+            '<input class="form-check-input" type="radio" name="attending_' + entryCount + '" id="attending-yes-' + entryCount + '" value="yes" required>' +
+            '<label class="form-check-label" for="attending-yes-' + entryCount + '">Yes</label>' +
+            '</div>' +
+            '<div class="form-check">' +
+            '<input class="form-check-input" type="radio" name="attending_' + entryCount + '" id="attending-no-' + entryCount + '" value="no">' +
+            '<label class="form-check-label" for="attending-no-' + entryCount + '">No</label>' +
+            '</div>' +
             '</fieldset>' +
             '<div class="rsvp-menu-field" style="display:none;">' +
-                '<legend class="rsvp-menu-title">Please select your meal choices</legend>' +
-                '<fieldset class="rsvp-menu-question">' +
-                    '<legend>Starters</legend>' +
-                    '<div class="form-check">' +
-                        '<input class="form-check-input" type="radio" name="starter_' + entryCount + '" id="starter-' + entryCount + '-1" value="Woodlands Prawn Cocktail">' +
-                        '<label class="form-check-label" for="starter-' + entryCount + '-1">Woodlands Prawn Cocktail</label>' +
-                    '</div>' +
-                    '<div class="form-check">' +
-                        '<input class="form-check-input" type="radio" name="starter_' + entryCount + '" id="starter-' + entryCount + '-2" value="Roasted Tomato and Basil Soup">' +
-                        '<label class="form-check-label" for="starter-' + entryCount + '-2">Roasted Tomato and Basil Soup</label>' +
-                    '</div>' +
-                '</fieldset>' +
-                '<fieldset class="rsvp-menu-question">' +
-                    '<legend>Mains</legend>' +
-                    '<div class="form-check">' +
-                        '<input class="form-check-input" type="radio" name="main_' + entryCount + '" id="main-' + entryCount + '-1" value="Roast Breast of Corn Fed Chicken">' +
-                        '<label class="form-check-label" for="main-' + entryCount + '-1">Roast Breast of Corn Fed Chicken</label>' +
-                    '</div>' +
-                    '<div class="form-check">' +
-                        '<input class="form-check-input" type="radio" name="main_' + entryCount + '" id="main-' + entryCount + '-2" value="Wild Mushroom Risotto">' +
-                        '<label class="form-check-label" for="main-' + entryCount + '-2">Wild Mushroom Risotto</label>' +
-                    '</div>' +
-                '</fieldset>' +
-                '<fieldset class="rsvp-menu-question">' +
-                    '<legend>Dessert</legend>' +
-                    '<div class="form-check">' +
-                        '<input class="form-check-input" type="radio" name="dessert_' + entryCount + '" id="dessert-' + entryCount + '-1" value="Sticky Toffee Pudding" checked>' +
-                        '<label class="form-check-label" for="dessert-' + entryCount + '-1">Sticky Toffee Pudding</label>' +
-                    '</div>' +
-                '</fieldset>' +
+            '<legend class="rsvp-menu-title">Please select your meal choices</legend>' +
+            '<fieldset class="rsvp-menu-question">' +
+            '<legend>Starters</legend>' +
+            '<div class="form-check">' +
+            '<input class="form-check-input" type="radio" name="starter_' + entryCount + '" id="starter-' + entryCount + '-1" value="Woodlands Prawn Cocktail">' +
+            '<label class="form-check-label" for="starter-' + entryCount + '-1">Woodlands Prawn Cocktail</label>' +
+            '</div>' +
+            '<div class="form-check">' +
+            '<input class="form-check-input" type="radio" name="starter_' + entryCount + '" id="starter-' + entryCount + '-2" value="Roasted Tomato and Basil Soup">' +
+            '<label class="form-check-label" for="starter-' + entryCount + '-2">Roasted Tomato and Basil Soup</label>' +
+            '</div>' +
+            '</fieldset>' +
+            '<fieldset class="rsvp-menu-question">' +
+            '<legend>Mains</legend>' +
+            '<div class="form-check">' +
+            '<input class="form-check-input" type="radio" name="main_' + entryCount + '" id="main-' + entryCount + '-1" value="Roast Breast of Corn Fed Chicken">' +
+            '<label class="form-check-label" for="main-' + entryCount + '-1">Roast Breast of Corn Fed Chicken</label>' +
+            '</div>' +
+            '<div class="form-check">' +
+            '<input class="form-check-input" type="radio" name="main_' + entryCount + '" id="main-' + entryCount + '-2" value="Wild Mushroom Risotto">' +
+            '<label class="form-check-label" for="main-' + entryCount + '-2">Wild Mushroom Risotto</label>' +
+            '</div>' +
+            '</fieldset>' +
+            '<fieldset class="rsvp-menu-question">' +
+            '<legend>Dessert</legend>' +
+            '<div class="form-check">' +
+            '<input class="form-check-input" type="radio" name="dessert_' + entryCount + '" id="dessert-' + entryCount + '-1" value="Sticky Toffee Pudding" checked>' +
+            '<label class="form-check-label" for="dessert-' + entryCount + '-1">Sticky Toffee Pudding</label>' +
+            '</div>' +
+            '</fieldset>' +
             '</div>' +
             '<fieldset class="rsvp-dietary-field" style="display:none;">' +
-                '<legend>Do you have any dietary requirements?</legend>' +
-                '<textarea class="form-control rsvp-dietary-input" name="dietary_' + entryCount + '" rows="2" placeholder="E.g. vegetarian, gluten-free, nut allergy..."></textarea>' +
+            '<legend>Do you have any dietary requirements?</legend>' +
+            '<textarea class="form-control rsvp-dietary-input" name="dietary_' + entryCount + '" rows="2" placeholder="E.g. vegetarian, gluten-free, nut allergy..."></textarea>' +
             '</fieldset>';
         entriesContainer.appendChild(entry);
         var newInput = entry.querySelector('.rsvp-name-input');
