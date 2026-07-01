@@ -286,7 +286,9 @@ document.querySelectorAll('nav a').forEach(function (link) {
         'Ella Quashie',
         'Kane Tenuta',
         'Ottavio Tenuta',
-        'Carolyn Tenuta'
+        'Carolyn Tenuta',
+        'Elena Huxley',
+        'Neil Huxley'
     ];
 
     var guestList = dayGuests.concat(eveningGuests);
